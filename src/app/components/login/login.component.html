@@ -1,0 +1,46 @@
+<div class="container vh-100" style="width: 500px;">
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow bg-success-subtle">
+            <div class="card-body px-5">
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                    <small>Please Enter your login credentials</small>
+                </div>
+                <br />
+
+                <form (ngSubmit)="onSubmit()" name="form" #loginForm="ngForm" novalidate>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Enter email"
+                            #email="ngModel" [(ngModel)]="model.email" required email>
+                        <div><span class="mandatory" *ngIf="email.invalid && email.touched">Email is Required.</span>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="password"
+                            [(ngModel)]="model.password" #password="ngModel" placeholder="Password" required>
+                        <div><span class="mandatory" *ngIf="password.invalid && password.touched">Password is Required.</span>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <button class="btn btn-primary w-100" type="submit" [disabled]="!loginForm.valid">Login</button>
+                   
+                </form>
+
+
+
+
+            </div>
+            <div class="card-footer text-center">
+                <a routerLink="../forgot-password">Forgot Password</a>
+            </div>
+        </div>
+    </div>
+</div>
